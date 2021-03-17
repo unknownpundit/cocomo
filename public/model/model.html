@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cocomo - Model</title>
+</head>
+<body>
+  <h1>Model</h1>
+  <form id="form-user" action="/model" method="GET">
+    <fieldset>
+      <legend>Project Type</legend>
+      <input class="buttons" type="radio" name="project-type" value="organic" id="organic">
+      <label for="organic">Organic</label>
+      <input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached">
+      <label for="semi-detached">Semi-Detached</label>
+      <input class="buttons" type="radio" name="project-type" value="embedded" id="embedded">
+      <label for="embedded">Embedded</label>
+    </fieldset>
+    <fieldset>
+      <legend>Lines of Code</legend>
+      <input type="text" name="loc" id="loc">
+    </fieldset>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
