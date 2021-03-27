@@ -1,3 +1,4 @@
+// renders html code that can interpolate with js code
 exports.output = (calculations) => {
   return `
   <!DOCTYPE html>
@@ -14,10 +15,10 @@ exports.output = (calculations) => {
   <body>
     <h1>Output</h1>
     <ul>
-      <li>Effort ${calculations[0]}</li>
-      <li>Development ${calculations[1]}</li>
-      <li>Staff size ${calculations[2]}</li>
-      <li>Productivity ${calculations[3]}</li>
+      <li>Effort ${calculations['min'][0]}</li>
+      <li>Development ${calculations['min'][1]}</li>
+      <li>Staff size ${calculations['min'][2]}</li>
+      <li>Productivity ${calculations['min'][3]}</li>
     </ul>
   </body>
   </html>  

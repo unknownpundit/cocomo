@@ -14,7 +14,7 @@
 	<header id="Top">
 		<div class="container-fluid bg-light mt-0 p-0">
 			<div class="card bg-dark text-white">
-					<img src="../home/imag/top.png" class="card-img " alt="..." width="1000" height="550" >
+					<img src="../home/imag/top.png" class="card-img " alt="..." width="1000" height="800" >
 					<div class="card-img-overlay">
 					<div class="row">
 					<div class="col">
@@ -65,9 +65,6 @@
 						<form id="form-user" action="/model" method="GET">
 							<fieldset>
 							<legend>What's your project type?</legend>
-							<br>
-							<br>
-							
 							<input class="buttons" type="radio" name="project-type" value="organic" id="organic" onclick="myFunction('Relatively Small','Well Understood','Nominal' )" >
 							<label for="organic">Organic</label>
 							<br>
@@ -78,9 +75,21 @@
 							</fieldset>
 							<hr class="my-4">
 							<fieldset>
-							<legend>Lines of Code</legend>
-							<input type="text" name="loc" id="loc">
+								<legend>Lines of Code</legend>
+								<label for="loc-min">Minimum</label>
+								<input type="text" name="loc-min" id="loc-min"><br>
+								<label for="loc-max">Maximum</label>
+								<input type="text" name="loc-max" id="loc-max">
 							</fieldset><br>
+							<hr class="my-4">
+							<fieldset>
+								<legend>Model Type</legend>
+								<label for="model-type">Choose a model</label>
+								<select id="model-type" name="model-type">
+									<option value="basic">Basic</option>
+									<option value="intermediate">Intermediate</option>
+								</select>
+							</fieldset>
 							<input type="submit" value="Submit" >
 							<br>
 							<br>
