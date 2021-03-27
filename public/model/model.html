@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Cocomo - Model</title>
 </head>
 <body>
 	<header id="Top">
-		<div class="container bg-light">
+		<div class="container-fluid bg-light mt-0 p-0">
 			<div class="card bg-dark text-white">
-					<img src="../home/imag/top.png" class="card-img " alt="..." width="1000" height="500" >
+					<img src="../home/imag/top.png" class="card-img " alt="..." width="1000" height="550" >
 					<div class="card-img-overlay">
 					<div class="row">
 					<div class="col">
@@ -43,37 +44,100 @@
 
 					  </div>
 					  <div class="row">
-						  
-					  <div class="col bg-light text-dark">
-  <h1>Model</h1>
-  <form id="form-user" action="/model" method="GET">
-    <fieldset>
-      <legend>Project Type</legend>
-      <input class="buttons" type="radio" name="project-type" value="organic" id="organic">
-      <label for="organic">Organic</label>
-      <input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached">
-      <label for="semi-detached">Semi-Detached</label>
-      <input class="buttons" type="radio" name="project-type" value="embedded" id="embedded">
-      <label for="embedded">Embedded</label>
-    </fieldset>
-    <fieldset>
-      <legend>Lines of Code</legend>
-      <input type="text" name="loc" id="loc">
-    </fieldset>
-    <input type="submit" value="Submit">
-    <br>
-    <br>
-  </form>
-          </div>
+					<div class="col-md-4 bg-white text-dark align-items-center" >
+						<div class="row-2"> <img src="../home/imag/pic.png" width="200" height="200"> </div>
+						<div class="row">
+							<script type="text/javascript">
+								
+							  function myFunction(s,p,e) {
+								document.getElementById("demo").innerHTML = "Team Size: " + s  + " <br/> problem: " + p + " <br/> experience: " + e ;
+								}
+							</script>
+							
+							<p id="demo"></p>
+							
+
+							
+						</div>
+					</div>
+					  <div class="col bg-white text-dark">
+  
+						<form id="form-user" action="/model" method="GET">
+							<fieldset>
+							<legend>What's your project type?</legend>
+							<br>
+							<br>
+							
+							<input class="buttons" type="radio" name="project-type" value="organic" id="organic" onclick="myFunction('Relatively Small','Well Understood','Nominal' )" >
+							<label for="organic">Organic</label>
+							<br>
+							<input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached" onclick="myFunction('team-size','less familiar and difficult to develop','knowledge of the various programming')">
+							<label for="semi-detached">Semi-Detached</label><br>
+							<input class="buttons" type="radio" name="project-type" value="embedded" id="embedded" onclick="myFunction('larger team','highest level of complexity','requirement fall under this category')">
+							<label for="embedded">Embedded</label><br>
+							</fieldset>
+							<hr class="my-4">
+							<fieldset>
+							<legend>Lines of Code</legend>
+							<input type="text" name="loc" id="loc">
+							</fieldset><br>
+							<input type="submit" value="Submit" >
+							<br>
+							<br>
+						</form>
+          			</div>
 
 						</div>
 							
 					</div> 
 					</div>
+					
 					</div>   
+					
 				</div>
+				
 			</div>
+			
+		
 		</div>
+		
 	</header>    
+	<footer id="footer">
+		<div class="container-fluid">
+		  <div class="row bg-dark text-white" >
+			
+			<div class="col-md-6">
+			  <ul class="nav flex-column">
+				<br>
+				<li class="nav-item">
+				  <a class="nav-link " aria-current="page" href="#">SiteMap</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">About</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Cocomo Model</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Account</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Help</a>
+				</li>
+	  
+			  </ul>
+			</div>
+			<div class="col-md-2">
+			  
+			</div>
+			   <div class="col-md-4">
+			  
+			</div>
+		  </div>
+		</div>
+	  </footer>
 </body>
 </html>
