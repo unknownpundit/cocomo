@@ -15,7 +15,7 @@ exports.output = (calculations) => {
     <body>
       <h1>Output</h1>
       <ul>
-        <li>Effort: ${calculations['min']}</li>
+        <li>Effort: ${calculations['min'][0]}</li>
         <li>Development ${calculations['min'][1]}</li>
         <li>Productivity ${calculations['min'][2]}</li>
       </ul>
