@@ -63,6 +63,179 @@
 					  <div class="col bg-white text-dark">
   
 						<form id="form-user" action="/model" method="GET">
+							<hr class="my-4">
+							<fieldset>
+								<legend>Model Type</legend>
+								<label for="model-type">Choose a model</label>
+								<select id="model-type" name="model-type">
+									<option value="basic">Basic</option>
+									<option value="intermediate">Intermediate</option>
+								</select>
+							</fieldset>
+
+							<!-- Work in Progress -->
+						<!-- Used to Hide if Intermediate Option is not selected -->
+						<fieldset id="onlyIM" hidden>
+
+							<fieldset>
+								<legend>Required Software Reliability</legend>
+
+								<select id="RSR" name="RSR">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>		
+							</fieldset>
+
+							<fieldset>
+								<legend>Size of Application Database</legend>
+								<select id="SAD" name="SAD">
+									<option value="a">Low</option>
+									<option value="b">Nominal</option>
+									<option value="c">High</option>
+									<option value="d">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Complexity of The Product</legend>
+								<select id="CP" name="CP">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Runtime Performance Constraints</legend>
+								<select id="RPC" name="RPC">
+									<option value="a">Nominal</option>
+									<option value="b">High</option>
+									<option value="c">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Memory Constraints</legend>
+								<select id="MC" name="MC">
+									<option value="a">Nominal</option>
+									<option value="b">High</option>
+									<option value="c">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Volatility of the Virtual Machine Environment</legend>
+								<select id="VVME" name="VVME">
+									<option value="a">Low</option>
+									<option value="b">Nominal</option>
+									<option value="c">High</option>
+									<option value="d">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Required Turnabout Time</legend>
+								<select id="RTT" name="RTT">
+									<option value="a">Low</option>
+									<option value="b">Nominal</option>
+									<option value="c">High</option>
+									<option value="d">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Analyst Capacity</legend>
+								<select id="AC" name="AC">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Applications Experinece</legend>
+								<select id="AE" name="AE">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Software Engineer Capacity</legend>
+								<select id="SEC" name="SEC">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Virtual Machine Experience</legend>
+								<select id="VME" name="VME">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Programming Language Experience</legend>
+								<select id="PLE" name="PLE">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Application of Software Engineering Methods</legend>
+								<select id="ASEM" name="ASEM">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Use of Software Tools</legend>
+								<select id="UST" name="UST">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+							<fieldset>
+								<legend>Required Development Schedule</legend>
+								<select id="RDS" name="RDS">
+									<option value="a">Very Low</option>
+									<option value="b">Low</option>
+									<option value="c">Nominal</option>
+									<option value="d">High</option>
+									<option value="e">Very High</option>
+								</select>
+							</fieldset>
+
+						</fieldset>
+
 							<fieldset>
 							<legend>What's your project type?</legend>
 							<input class="buttons" type="radio" name="project-type" value="organic" id="organic" onclick="myFunction('Relatively Small','Well Understood','Nominal' )" >
@@ -81,15 +254,7 @@
 								<label for="loc-max">Maximum</label>
 								<input type="text" name="loc-max" id="loc-max">
 							</fieldset><br>
-							<hr class="my-4">
-							<fieldset>
-								<legend>Model Type</legend>
-								<label for="model-type">Choose a model</label>
-								<select id="model-type" name="model-type">
-									<option value="basic">Basic</option>
-									<option value="intermediate">Intermediate</option>
-								</select>
-							</fieldset>
+							
 							<input type="submit" value="Submit" >
 							<br>
 							<br>
@@ -148,5 +313,20 @@
 		  </div>
 		</div>
 	  </footer>
+
+	  <script>
+		hiddenOptions = document.getElementById("onlyIM")
+  		modelType = document.getElementById("model-type")
+  		
+		modelType.addEventListener('change', function() {
+  			if (modelType.value == 'intermediate') {
+    			hiddenOptions.hidden = false
+  			}
+  			else
+  			{
+    			hiddenOptions.hidden = true
+  			}
+		})
+	</script>
 </body>
 </html>
