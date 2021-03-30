@@ -27,25 +27,46 @@ function parseQuery(query) {
   locMax = Number(query['loc-max'])
   projectType = query['project-type']
   modelType = query['model-type']
-  return [locMin, locMax, projectType, modelType]
+  return { 'locMin': locMin, 'locMax': locMax, 'projectType': projectType, 'modelType': modelType }
 }
 
-// basicModel returns an object of outputs for min and max
+// basicModel returns an object of outputs by each projectType and 11 individual LOC calculations per each projectType
 exports.basicModel = (raw_query) => {
   const query = parseQuery(raw_query)
-  const locMin = query[0]
-  const locMax = query[1]
-  const projectType = query[2]
-  const modelType = query[3]
-  const constants = CONSTANTS[projectType]
-  const effortMin = calculateEffort(locMin, constants)
-  const developmentMin = calculateDevelopment(effortMin, constants)
-  const staffSizeMin = calculateAverageStaffSize(effortMin, developmentMin)
-  const productivityMin = calculateProductivity(locMin, effortMin)
-  const effortMax = calculateEffort(locMax, constants)
-  const developmentMax = calculateDevelopment(effortMax, constants)
-  const staffSizeMax = calculateAverageStaffSize(effortMax, developmentMax)
-  const productivityMax = calculateProductivity(locMin, effortMax)
+  const locMin = query['locMin']
+  const locMax = query['locMax']
+  const range = locRange(locMin, locMax)
+  const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
+  outputSet['selectedProjectType'] = query['projectType']
+  outputSet['loc-labels'] = range
+  const projectTypes = ['organic', 'semi-detached', 'embedded']
+  projectTypes.forEach(projectType => calculateProjectType(projectType, outputSet, range))
+  return outputSet
+}
 
-  return { 'min': [effortMin, developmentMin, staffSizeMin, productivityMin], 'max': [effortMax, developmentMax, staffSizeMax, productivityMax] }
+// calculates all the set of metrics for a specific project type
+function calculateProjectType(projectType, outputSet, range) {
+  const constants = CONSTANTS[projectType]
+  const projectTypeOutputSet = []
+  range.forEach(loc => calculateMetrics(loc, constants, projectTypeOutputSet));
+  outputSet[projectType] = projectTypeOutputSet
+}
+
+// calculates metrics for a single LOC input
+function calculateMetrics(loc, constants, projectTypeOutputSet) {
+  const effort = calculateEffort(loc, constants)
+  const development = calculateDevelopment(effort, constants)
+  const staffSize = calculateAverageStaffSize(effort, development)
+  const productivity = calculateProductivity(loc, effort)
+  projectTypeOutputSet.push({ 'effort': effort, 'development': development, 'staffSize': staffSize, 'productivity': productivity, 'loc': loc })
+}
+
+// returns a range of loc between min and max for charts
+function locRange(min, max) {
+  let buffer = Math.ceil(max / 10) 
+  const values = [min]
+  for (let i = 1; i < 11; i++) {
+    values[i] = values[i - 1] + buffer
+  }
+  return values
 }
