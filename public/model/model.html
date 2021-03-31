@@ -1,348 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Cocomo - Model</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Cocomo - Model</title>
 </head>
+
 <body>
 	<header id="Top">
 		<div class="container-fluid bg-light mt-0 p-0">
 			<div class="card bg-dark text-white">
-					<img src="../home/imag/top.png" class="card-img " alt="..." width="1000" height="800" >
-					<div class="card-img-overlay">
+				<img src="../home/imag/top.png" class="card-img " alt="..." width="1000"
+					height="800">
+				<div class="card-img-overlay">
 					<div class="row">
-					<div class="col">
-					  <div class="row">
-						<div class="col-ms-6" >
-							<p class="card-text text-start"><a href="../home/index.html"><img src="../home/imag/logo.png" alt="..." width="50" height="50"></a></p>
-						</div>
 						<div class="col">
-							
-						
-								
-						  <ul class="nav justify-content-end">
-							<li class="nav-item">
-							  <a class="nav-link active" aria-current="page" href="#">About</a>
-							</li>
-							<li class="nav-item">
-							  <a class="nav-link" href="../model/model.html">Get Started</a>
-							</li>
-							<li class="nav-item">
-							  <a class="nav-link" href="../home/account.html">Account</a>
-							</li>
-			
-						  </ul>
-						</div>
-					  </div>
-					  <div class="row">
-						  <br>
-						  <br>
-						  <br>
-						  <br>
-						  <br>
-						  <br>
+							<div class="row">
+								<div class="col-ms-6">
+									<p class="card-text text-start"><a
+											href="../home/index.html"><img src="../home/imag/logo.png"
+												alt="..." width="50" height="50"></a></p>
+								</div>
+								<div class="col">
+									<ul class="nav justify-content-end">
+										<li class="nav-item">
+											<a class="nav-link active" aria-current="page"
+												href="#">About</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" href="../model/model.html">Get
+												Started</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link"
+												href="../home/account.html">Account</a>
+										</li>
 
-					  </div>
-					  <div class="row">
-					<div class="col-md-4 bg-white text-dark align-items-center" >
-						<div class="row-2"> <img src="../home/imag/pic.png" width="200" height="200"> </div>
-						<div class="row">
-							<script type="text/javascript">
-								
-							  function myFunction(s,p,e) {
-								document.getElementById("demo").innerHTML = "Team Size: " + s  + " <br/> problem: " + p + " <br/> experience: " + e ;
-								}
-							</script>
-							
-							<p id="demo"></p>
-							
+									</ul>
+								</div>
+							</div>
+							<div class="row">
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
+								<br>
 
-							
+							</div>
+							<div class="row">
+								<div class="col-md-4 bg-white text-dark align-items-center">
+									<div class="row-2"> <img src="../home/imag/pic.png"
+											width="200" height="200"> </div>
+									<div class="row">
+										<script type="text/javascript">
+
+											function myFunction(s, p, e) {
+												document.getElementById("demo").innerHTML = "Team Size: " + s + " <br/> problem: " + p + " <br/> experience: " + e;
+											}
+										</script>
+
+										<p id="demo"></p>
+
+
+
+									</div>
+								</div>
+								<div class="col bg-white text-dark">
+
+									<form id="form-user" action="/model" method="GET">
+										<hr class="my-4">
+										<fieldset>
+											<legend>Model Type</legend>
+											<label for="model-type">Choose a model</label>
+											<select id="model-type" name="model-type">
+												<option value="basic">Basic</option>
+												<option value="intermediate">Intermediate</option>
+											</select>
+										</fieldset>
+
+										<!-- Work in Progress -->
+										<!-- Used to Hide if Intermediate Option is not selected -->
+										<fieldset id="onlyIM" hidden>
+
+											<fieldset>
+												<legend>Required Software Reliability</legend>
+
+												<select id="RSR" name="RSR">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Size of Application Database</legend>
+												<select id="SAD" name="SAD">
+													<option value="a">Low</option>
+													<option value="b">Nominal</option>
+													<option value="c">High</option>
+													<option value="d">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Complexity of The Product</legend>
+												<select id="CP" name="CP">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Runtime Performance Constraints</legend>
+												<select id="RPC" name="RPC">
+													<option value="a">Nominal</option>
+													<option value="b">High</option>
+													<option value="c">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Memory Constraints</legend>
+												<select id="MC" name="MC">
+													<option value="a">Nominal</option>
+													<option value="b">High</option>
+													<option value="c">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Volatility of the Virtual Machine Environment
+												</legend>
+												<select id="VVME" name="VVME">
+													<option value="a">Low</option>
+													<option value="b">Nominal</option>
+													<option value="c">High</option>
+													<option value="d">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Required Turnabout Time</legend>
+												<select id="RTT" name="RTT">
+													<option value="a">Low</option>
+													<option value="b">Nominal</option>
+													<option value="c">High</option>
+													<option value="d">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Analyst Capacity</legend>
+												<select id="AC" name="AC">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Applications Experinece</legend>
+												<select id="AE" name="AE">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Software Engineer Capacity</legend>
+												<select id="SEC" name="SEC">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Virtual Machine Experience</legend>
+												<select id="VME" name="VME">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Programming Language Experience</legend>
+												<select id="PLE" name="PLE">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Application of Software Engineering Methods
+												</legend>
+												<select id="ASEM" name="ASEM">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Use of Software Tools</legend>
+												<select id="UST" name="UST">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+											<fieldset>
+												<legend>Required Development Schedule</legend>
+												<select id="RDS" name="RDS">
+													<option value="a">Very Low</option>
+													<option value="b">Low</option>
+													<option value="c">Nominal</option>
+													<option value="d">High</option>
+													<option value="e">Very High</option>
+												</select>
+											</fieldset>
+
+										</fieldset>
+										<hr class="my-4">
+										<fieldset>
+											<legend>What's your project type?</legend>
+											<input class="buttons" type="radio" name="project-type"
+												value="organic" id="organic"
+												onclick="myFunction('Relatively Small','Well Understood','Nominal' )">
+											<label for="organic">Organic</label>
+											<br>
+											<input class="buttons" type="radio" name="project-type"
+												value="semi-detached" id="semi-detached"
+												onclick="myFunction('Team-size','Less familiar and difficult to develop','Knowledge of the various programming')">
+											<label for="semi-detached">Semi-Detached</label><br>
+											<input class="buttons" type="radio" name="project-type"
+												value="embedded" id="embedded"
+												onclick="myFunction('Larger team','Highest level of complexity','Requirement fall under this category')">
+											<label for="embedded">Embedded</label><br>
+										</fieldset>
+										<hr class="my-4">
+										<fieldset>
+											<legend>Lines of Code</legend>
+											<label for="loc-min">Minimum</label>
+											<input type="text" name="loc-min" id="loc-min"><br>
+											<label for="loc-max">Maximum</label>
+											<input type="text" name="loc-max" id="loc-max">
+										</fieldset><br>
+
+										<input type="submit" value="Submit">
+										<br>
+										<br>
+									</form>
+								</div>
+
+							</div>
+
 						</div>
 					</div>
-					  <div class="col bg-white text-dark">
-  
-						<form id="form-user" action="/model" method="GET">
-							<hr class="my-4">
-							<fieldset>
-								<legend>Model Type</legend>
-								<label for="model-type">Choose a model</label>
-								<select id="model-type" name="model-type">
-									<option value="basic">Basic</option>
-									<option value="intermediate">Intermediate</option>
-								</select>
-							</fieldset>
 
-							<!-- Work in Progress -->
-						<!-- Used to Hide if Intermediate Option is not selected -->
-						<fieldset id="onlyIM" hidden>
-
-							<fieldset>
-								<legend>Required Software Reliability</legend>
-
-								<select id="RSR" name="RSR">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>		
-							</fieldset>
-
-							<fieldset>
-								<legend>Size of Application Database</legend>
-								<select id="SAD" name="SAD">
-									<option value="a">Low</option>
-									<option value="b">Nominal</option>
-									<option value="c">High</option>
-									<option value="d">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Complexity of The Product</legend>
-								<select id="CP" name="CP">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Runtime Performance Constraints</legend>
-								<select id="RPC" name="RPC">
-									<option value="a">Nominal</option>
-									<option value="b">High</option>
-									<option value="c">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Memory Constraints</legend>
-								<select id="MC" name="MC">
-									<option value="a">Nominal</option>
-									<option value="b">High</option>
-									<option value="c">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Volatility of the Virtual Machine Environment</legend>
-								<select id="VVME" name="VVME">
-									<option value="a">Low</option>
-									<option value="b">Nominal</option>
-									<option value="c">High</option>
-									<option value="d">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Required Turnabout Time</legend>
-								<select id="RTT" name="RTT">
-									<option value="a">Low</option>
-									<option value="b">Nominal</option>
-									<option value="c">High</option>
-									<option value="d">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Analyst Capacity</legend>
-								<select id="AC" name="AC">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Applications Experinece</legend>
-								<select id="AE" name="AE">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Software Engineer Capacity</legend>
-								<select id="SEC" name="SEC">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Virtual Machine Experience</legend>
-								<select id="VME" name="VME">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Programming Language Experience</legend>
-								<select id="PLE" name="PLE">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Application of Software Engineering Methods</legend>
-								<select id="ASEM" name="ASEM">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Use of Software Tools</legend>
-								<select id="UST" name="UST">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-							<fieldset>
-								<legend>Required Development Schedule</legend>
-								<select id="RDS" name="RDS">
-									<option value="a">Very Low</option>
-									<option value="b">Low</option>
-									<option value="c">Nominal</option>
-									<option value="d">High</option>
-									<option value="e">Very High</option>
-								</select>
-							</fieldset>
-
-						</fieldset>
-
-							<fieldset>
-								<legend>Model Type</legend>
-								<label for="model-type">Choose a model</label>
-								<select id="model-type" name="model-type">
-									<option value="basic">Basic</option>
-									<option value="intermediate">Intermediate</option>
-								</select>
-							</fieldset>
-							<hr class="my-4">
-							<fieldset>
-							<legend>What's your project type?</legend>
-							<input class="buttons" type="radio" name="project-type" value="organic" id="organic" onclick="myFunction('Relatively Small','Well Understood','Nominal' )" >
-							<label for="organic">Organic</label>
-							<br>
-							<input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached" onclick="myFunction('Team-size','Less familiar and difficult to develop','Knowledge of the various programming')">
-							<label for="semi-detached">Semi-Detached</label><br>
-							<input class="buttons" type="radio" name="project-type" value="embedded" id="embedded" onclick="myFunction('Larger team','Highest level of complexity','Requirement fall under this category')">
-							<label for="embedded">Embedded</label><br>
-							</fieldset>
-							<hr class="my-4">
-							<fieldset>
-								<legend>Lines of Code</legend>
-								<label for="loc-min">Minimum</label>
-								<input type="text" name="loc-min" id="loc-min"><br>
-								<label for="loc-max">Maximum</label>
-								<input type="text" name="loc-max" id="loc-max">
-							</fieldset><br>
-							
-							<input type="submit" value="Submit" >
-							<br>
-							<br>
-						</form>
-          			</div>
-
-						</div>
-							
-					</div> 
-					</div>
-					
-					</div>   
-					
 				</div>
-				
+
 			</div>
-			
-		
+
 		</div>
-		
-	</header>    
+
+
+
+	</header>
 
 	<footer id="footer">
 		<div class="container-fluid">
-		  <div class="row bg-dark text-white" >
-			
-			<div class="col-md-6">
-			  <ul class="nav flex-column">
-				<br>
-				<li class="nav-item">
-				  <a class="nav-link " aria-current="page" href="#">SiteMap</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">About</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Cocomo Model</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Account</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link" href="#">Help</a>
-				</li>
-	  
-			  </ul>
-			</div>
-			<div class="col-md-2">
-			  
-			</div>
-			   <div class="col-md-4">
-			  
-			</div>
-		  </div>
-		</div>
-	  </footer>
+			<div class="row bg-dark text-white">
 
-	  <script>
+				<div class="col-md-6">
+					<ul class="nav flex-column">
+						<br>
+						<li class="nav-item">
+							<a class="nav-link " aria-current="page" href="#">SiteMap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Cocomo Model</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Help</a>
+						</li>
+
+					</ul>
+				</div>
+				<div class="col-md-2">
+
+				</div>
+				<div class="col-md-4">
+
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script>
 		hiddenOptions = document.getElementById("onlyIM")
-  		modelType = document.getElementById("model-type")
-  		
-		modelType.addEventListener('change', function() {
-  			if (modelType.value == 'intermediate') {
-    			hiddenOptions.hidden = false
-  			}
-  			else
-  			{
-    			hiddenOptions.hidden = true
-  			}
+		modelType = document.getElementById("model-type")
+
+		modelType.addEventListener('change', function () {
+			if (modelType.value == 'intermediate') {
+				hiddenOptions.hidden = false
+			}
+			else {
+				hiddenOptions.hidden = true
+			}
 		})
 	</script>
 </body>
+
 </html>
