@@ -19,10 +19,13 @@
 					<div class="row">
 					<div class="col">
 					  <div class="row">
-						<div class="col" >
-							<p class="card-text text-start"><img src="../home/imag/logo.png" alt="..." width="50" height="50"></p>
+						<div class="col-ms-6" >
+							<p class="card-text text-start"><a href="../home/index.html"><img src="../home/imag/logo.png" alt="..." width="50" height="50"></a></p>
 						</div>
 						<div class="col">
+							
+						
+								
 						  <ul class="nav justify-content-end">
 							<li class="nav-item">
 							  <a class="nav-link active" aria-current="page" href="#">About</a>
@@ -38,6 +41,9 @@
 						</div>
 					  </div>
 					  <div class="row">
+						  <br>
+						  <br>
+						  <br>
 						  <br>
 						  <br>
 						  <br>
@@ -237,13 +243,22 @@
 						</fieldset>
 
 							<fieldset>
+								<legend>Model Type</legend>
+								<label for="model-type">Choose a model</label>
+								<select id="model-type" name="model-type">
+									<option value="basic">Basic</option>
+									<option value="intermediate">Intermediate</option>
+								</select>
+							</fieldset>
+							<hr class="my-4">
+							<fieldset>
 							<legend>What's your project type?</legend>
 							<input class="buttons" type="radio" name="project-type" value="organic" id="organic" onclick="myFunction('Relatively Small','Well Understood','Nominal' )" >
 							<label for="organic">Organic</label>
 							<br>
-							<input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached" onclick="myFunction('team-size','less familiar and difficult to develop','knowledge of the various programming')">
+							<input class="buttons" type="radio" name="project-type" value="semi-detached" id="semi-detached" onclick="myFunction('Team-size','Less familiar and difficult to develop','Knowledge of the various programming')">
 							<label for="semi-detached">Semi-Detached</label><br>
-							<input class="buttons" type="radio" name="project-type" value="embedded" id="embedded" onclick="myFunction('larger team','highest level of complexity','requirement fall under this category')">
+							<input class="buttons" type="radio" name="project-type" value="embedded" id="embedded" onclick="myFunction('Larger team','Highest level of complexity','Requirement fall under this category')">
 							<label for="embedded">Embedded</label><br>
 							</fieldset>
 							<hr class="my-4">
@@ -276,6 +291,7 @@
 		</div>
 		
 	</header>    
+
 	<footer id="footer">
 		<div class="container-fluid">
 		  <div class="row bg-dark text-white" >

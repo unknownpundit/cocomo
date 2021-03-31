@@ -12,14 +12,11 @@ exports.route = (request, response) => {
       fileHandler.readFile(request, response, "./public/home/index.html")
       break
     case '/model':
-      // checks to see if it's a query
-      if(Object.keys(query).length > 0) {
-        // calculates the output for basic model
-        if (query['model-type'] == 'basic') {
+      if(Object.keys(query).length > 0) { // checks to see if it's a query
+        if (query['model-type'] == 'basic') { // calculates the output for basic model
           const calculations = cocomo.basicModel(query)
           response.writeHead(200, { "Content-Type": "text/html" })
-          // calls template module to render html
-          response.write(template.output(calculations))
+          response.write(template.output(calculations)) // calls template module to render html
           response.end()
         } 
         else {
