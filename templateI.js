@@ -1,3 +1,5 @@
+const { output } = require("./template");
+
 // renders html code that can interpolate with js code
 exports.output = (calculations) => {
     const selectedProjectType = calculations['selectedProjectType']
@@ -19,15 +21,15 @@ exports.output = (calculations) => {
       <section>Selected Project type: ${formatProjectType(selectedProjectType)}</section>
       <h2>Min</h2>
       <ul>
-        <li>Effort ${calculations[selectedProjectType][0]['effort']}</li>
-        <li>Development ${calculations[selectedProjectType][0]['development']}</li>
-        <li>Productivity ${calculations[selectedProjectType][0]['productivity']}</li>
+        <li>Effort: ${getCalculation(calculations, selectedProjectType, true, 'effort')} Person months</li>
+        <li>Development: ${getCalculation(calculations, selectedProjectType, true, 'development')} Months</li>
+        <li>Productivity: ${getCalculation(calculations, selectedProjectType, true, 'productivity')} KLOC/Person months</li>
       </ul>
       <h2>Max</h2>
       <ul>
-        <li>Effort ${calculations[selectedProjectType][calculations[selectedProjectType].length - 1]['effort']}</li>
-        <li>Development ${calculations[selectedProjectType][calculations[selectedProjectType].length - 1]['development']}</li>
-        <li>Productivity ${calculations[selectedProjectType][calculations[selectedProjectType].length - 1]['productivity']}</li>
+        <li>Effort: ${getCalculation(calculations, selectedProjectType, false, 'effort')} Person months</li>
+        <li>Development: ${getCalculation(calculations, selectedProjectType, false, 'development')} Months</li>
+        <li>Productivity: ${getCalculation(calculations, selectedProjectType, false, 'productivity')} KLOC/Person months</li>
       </ul>
       <div class="container">
         <canvas id="chart-effort-loc"></canvas>
@@ -196,4 +198,12 @@ function getData(calculations, projectType, metric) {
   
 function formatProjectType(projectType) {
   return projectType.slice(0,1).toUpperCase() + projectType.slice(1)
+}
+
+function getCalculation(calculations, projectType, min, metric) {
+  const calculation = min ? calculations[projectType][0][metric] : calculations[projectType][calculations[projectType].length - 1][metric]
+  if (calculation < 1) {
+    return Math.round(calculation * 1000) / 1000
+  }
+  return Math.round(calculation)
 }
