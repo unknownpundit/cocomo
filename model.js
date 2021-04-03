@@ -146,8 +146,23 @@ exports.intermediateModel = (raw_query) => {
   const query = parseQueryI(raw_query)
   const locMin = query[0]
   const locMax = query[1]
-  const projectType = query[2]
-  const modelType = query[3]
+  const range = locRange(locMin, locMax)
+  const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
+  outputSet['selectedProjectType'] = query[2]
+  outputSet['loc-labels'] = range
+  const projectTypes = ['organic', 'semi-detached', 'embedded']
+  projectTypes.forEach(projectType => calculateProjectTypeIntermediate(projectType, outputSet, range, query))
+  return outputSet
+}
+
+function calculateProjectTypeIntermediate(projectType, outputSet, range, query) {
+  const constants = CONSTANTSI[projectType]
+  const projectTypeOutputSet = []
+  range.forEach(loc => calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSet))
+  outputSet[projectType] = projectTypeOutputSet
+}
+
+function calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSet) {
   const val1 = query[4]
   const val2 = query[5]
   const val3 = query[6]
@@ -163,17 +178,9 @@ exports.intermediateModel = (raw_query) => {
   const val13 = query[16]
   const val14 = query[17]
   const val15 = query[18]
-  const constants = CONSTANTSI[projectType]
   const EAF = calculateEAF(val1,val2,val3,val4,val5,val6,val7,val8,val9,val10,val11,val12,val13,val14,val15)
-  //Minimum Values
-  const effortMin = calculateIMEffort(locMin, constants, EAF)
-  const developmentMin= calculateIMDevelopment(effortMin, constants)
-  const productivityMin = calculateIMProductivity(effortMin, developmentMin)
-  //Maximum Values
-  const effortMax = calculateIMEffort(locMax, constants, EAF)
-  const developmentMax = calculateIMDevelopment(effortMax, constants)
-  const productivityMax = calculateIMProductivity(effortMax, developmentMax)
-  
-  return { 'min': [effortMin, developmentMin, productivityMin], 'max': [effortMax, developmentMax, productivityMax]}
+  const effort = calculateIMEffort(loc, constants, EAF)
+  const development= calculateIMDevelopment(effort, constants)
+  const productivity = calculateIMProductivity(effort, development)
+  projectTypeOutputSet.push({ 'effort': effort, 'development': development, 'productivity': productivity, 'loc': loc })
 }
-

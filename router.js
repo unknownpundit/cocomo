@@ -23,7 +23,6 @@ exports.route = (request, response) => {
           if (query['model-type'] == 'intermediate') {
             const calculations = cocomo.intermediateModel(query)
             response.writeHead(200, {"Content-Type": "text/html" })
-
             response.write(templateI.output(calculations))
             response.end()
           }

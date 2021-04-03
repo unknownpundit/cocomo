@@ -16,6 +16,7 @@ exports.output = (calculations) => {
   </head>
   <body>
     <h1>Output</h1>
+    <section>Selected Project type: ${formatProjectType(selectedProjectType)}</section>
     <h2>Min</h2>
     <ul>
       <li>Effort ${calculations[selectedProjectType][0]['effort']}</li>
@@ -243,4 +244,8 @@ function getLabels(calculations) {
 
 function getData(calculations, projectType, metric) {
   return calculations[projectType].map(dataSet => dataSet[metric])
+}
+
+function formatProjectType(projectType) {
+  return projectType.slice(0,1).toUpperCase() + projectType.slice(1)
 }
