@@ -134,7 +134,7 @@ function calculateMetrics(loc, constants, projectTypeOutputSet) {
 
 // returns a range of loc between min and max for charts
 function locRange(min, max) {
-  let buffer = Math.ceil(max / 10) 
+  let buffer = Math.ceil((max - min) / 10) 
   const values = [min]
   for (let i = 1; i < 11; i++) {
     values[i] = values[i - 1] + buffer
