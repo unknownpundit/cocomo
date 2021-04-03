@@ -68,14 +68,23 @@
 									<div class="row">
 										<!-- Function for showing explanation about type of project -->
 										<script type="text/javascript">
-
+								
 											function myFunction(s, p, e) {
-												document.getElementById("demo").innerHTML = "Team Size: " + s + " <br/> problem: " + p + " <br/> experience: " + e;
+												document.getElementById("demo").innerHTML = " Team Size: " + s + " <br/> Problem: " + p + " <br/>  Experience: " + e;
 											}
 										</script>
-										<!-- Place we show explanation about type of project -->
-										<p id="demo"></p>
-
+										<!--Place to shows explanation about about type of project -->	
+										<p id="demo" class="p-3"></p>
+									<!-- Function for showing explanation about number of code lines -->	
+										<script type="text/javascript"> 
+											function make_blank()
+											{
+											
+											document.getElementById("exp").innerHTML = " The estimated number of line code: <br/> The control software to run a U.S. military drone uses 3.5 million lines of code <br/>A Boeing 787 has 6.5 million lines behind its avionics and online support systems <br/>Google Chrome (browser) runs on 6.7 million lines of code (upper estimate) <br/>A Chevy Volt uses 10 million lines <br/>The Android operating system runs on 12-15 million lines"
+											}
+											</script>
+									<!--Place to shows explanation about number of code lines -->
+									<p id="exp" class="p-3"></p>
 									</div>
 								</div>
 								<div class="col bg-white text-dark">
