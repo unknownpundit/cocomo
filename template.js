@@ -15,6 +15,44 @@ exports.output = (calculations) => {
     <title>Cocomo - Model</title>
   </head>
   <body>
+    <header id="Top">
+    <div class="container-fluid bg-light mt-0 p-0">
+      <div class="card bg-dark text-white">
+        <img src="../home/imag/header.png" class="card-img " alt="..."
+          width="1000" height="150">
+        <div class="card-img-overlay">
+          <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col-ms-6">
+                  <p class="card-text text-start"><a href="/"><img
+                        src="../home/imag/logo.png" alt="..." width="60"
+                        height="60"></a></p>
+                </div>
+                <div class="col">
+                  <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page"
+                        href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="/model">Get
+                        Started</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link"
+                        href="../home/account.html">Account</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <section id="body">
     <h1>Output</h1>
     <section>Selected Project type: ${formatProjectType(selectedProjectType)}</section>
     <h2>Min</h2>
@@ -23,7 +61,6 @@ exports.output = (calculations) => {
       <li>Development: ${getCalculation(calculations, selectedProjectType, true, 'development')} Months</li>
       <li>Staff size: ${getCalculation(calculations, selectedProjectType, true, 'staffSize')} People</li>
       <li>Productivity: ${getCalculation(calculations, selectedProjectType, true, 'productivity')} KLOC/Person months</li>
-  
     </ul>
     <h2>Max</h2>
     <ul>
@@ -31,14 +68,47 @@ exports.output = (calculations) => {
       <li>Development: ${getCalculation(calculations, selectedProjectType, false, 'development')} Months</li>
       <li>Staff size: ${getCalculation(calculations, selectedProjectType, false, 'staffSize')} People</li>
       <li>Productivity: ${getCalculation(calculations, selectedProjectType, false, 'productivity')} KLOC/Person months</li>
-
     </ul>
     <div class="container">
-    <canvas id="chart-effort-loc"></canvas>
-    <canvas id="chart-development-loc"></canvas>
-    <canvas id="chart-staffSize-loc"></canvas>
-    <canvas id="chart-productivity-loc"></canvas>
-  </div>
+      <canvas id="chart-effort-loc"></canvas>
+      <canvas id="chart-development-loc"></canvas>
+      <canvas id="chart-staffSize-loc"></canvas>
+      <canvas id="chart-productivity-loc"></canvas>
+    </div>
+  </section>
+  <footer id="footer">
+		<div class="container-fluid">
+			<div class="row bg-dark text-white">
+				<div class="col-md-6">
+					<ul class="nav flex-column">
+						<br>
+						<li class="nav-item">
+							<a class="nav-link " aria-current="page" href="#">SiteMap</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="model.html">Cocomo Model</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../home/account.html">Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Help</a>
+						</li>
+					</ul>
+				</div>
+				<div class="col-md-2">
+				</div>
+				<div class="col-md-4">
+				</div>
+			</div>
+		</div>
+	</footer>
   <script>
     let effortCanvas = document.getElementById('chart-effort-loc').getContext('2d')
     let effortChart = new Chart(effortCanvas, {

@@ -182,5 +182,6 @@ function calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSe
   const effort = calculateIMEffort(loc, constants, EAF)
   const development= calculateIMDevelopment(effort, constants)
   const productivity = calculateIMProductivity(effort, development)
-  projectTypeOutputSet.push({ 'effort': effort, 'development': development, 'productivity': productivity, 'loc': loc })
+  const staffSize = calculateAverageStaffSize(effort, development)
+  projectTypeOutputSet.push({ 'effort': effort, 'development': development, 'productivity': productivity, 'staffSize': staffSize, 'loc': loc })
 }
