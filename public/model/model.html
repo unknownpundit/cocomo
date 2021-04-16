@@ -84,7 +84,7 @@
 			</div>
 			<div class="col bg-white text-dark">
 
-				<form id="form-user" action="/model" method="GET">
+				<form id="form-user" name="model-form" action="/model" onsubmit="return validateLOC()" method="GET">
 					<hr class="my-4">
 					<fieldset>
 						<legend>Model Type</legend>
@@ -264,7 +264,7 @@
 						<legend>What's your project type?</legend>
 						<input class="buttons" type="radio" name="project-type"
 							value="organic" id="organic"
-							onclick="myFunction('Relatively small','Well understood','Nominal' )">
+							onclick="myFunction('Relatively small','Well understood','Nominal' )" required>
 						<label for="organic">Organic</label>
 						<br>
 						<input class="buttons" type="radio" name="project-type"
@@ -284,7 +284,6 @@
 						<label for="loc-max">Maximum</label>
 						<input type="number" name="loc-max" id="loc-max">
 					</fieldset><br>
-
 					<input type="submit" value="Submit" class="btn btn-dark">
 					<br>
 					<br>
@@ -327,6 +326,16 @@
 		})
 
 		document.getElementById('loc-min').addEventListener('click', make_blank)
+
+		function validateLOC() {
+			const min = +document.forms["model-form"]["loc-min"].value;
+			const max = +document.forms["model-form"]["loc-max"].value;
+
+			if (min > max) {
+				alert("Minimum LOC cannot be greater than maxium LOC");
+				return false;
+			}
+		}
 	</script>
 </body>
 
