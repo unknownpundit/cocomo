@@ -17,41 +17,26 @@ exports.output = (calculations) => {
     <title>Cocomo - Model</title>
   </head>
   <body>
-    <header id="Top">
-    <div class="container-fluid bg-light mt-0 p-0">
-      <div class="card bg-dark text-white">
-        <div class="card-img-overlay">
-          <div class="row">
-            <div class="col">
-              <div class="row">
-                <div class="col-ms-6">
-                  <p class="card-text text-start"><a href="/"><img
-                        src="../home/imag/logo.svg" alt="Logo" width="60"
-                        height="60"></a></p>
-                </div>
-                <div class="col">
-                  <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page"
-                        href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/model">Get
-                        Started</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link"
-                        href="../home/account.html">Account</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+  <nav class="navbar navbar-expand navbar-light" style="justify-content: space-between;">
+    <a class="navbar-brand" href="./"><img src="../home/imag/logo.svg" alt="Logo" width="60" height="60"></a>
+    <div>
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page"
+            href="./">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/model">Get
+            Started</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+            href="../home/account.html">Account</a>
+        </li>
+      </ul>
     </div>
-  </header>
+  </nav>
+
   <section id="body">
     <h1>Project type: ${formatProjectType(selectedProjectType)}</h1>
     <table id="output-table" class="table table-dark table-striped table-bordered table-hover">
@@ -94,39 +79,27 @@ exports.output = (calculations) => {
       <button id="download-button" class="btn btn-dark">Download Charts</button>
     </section>
   </section>
-  <footer id="footer">
-		<div class="container-fluid">
-			<div class="row bg-dark text-white">
-				<div class="col-md-6">
-					<ul class="nav flex-column">
-						<br>
-						<li class="nav-item">
-							<a class="nav-link " aria-current="page" href="#">SiteMap</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="/">Home</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">About</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="model.html">Cocomo Model</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="../home/account.html">Account</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Help</a>
-						</li>
-					</ul>
-				</div>
-				<div class="col-md-2">
-				</div>
-				<div class="col-md-4">
-				</div>
-			</div>
-		</div>
-	</footer>
+
+  <footer class="navbar navbar-expand navbar-dark bg-dark" style="justify-content: space-between; padding: 1%;">
+    <div>
+      <ul class="navbar-nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="./">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="./">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/model">Cocomo Model</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../home/account.html">Account</a>
+        </li>
+      </ul>
+    </div>
+    <a class="navbar-brand" href="./"><img src="../home/imag/logo.svg" alt="Logo" width="60" height="60"></a>
+  </footer>
+
   <script>
     let effortCanvas = document.getElementById('chart-effort-loc').getContext('2d')
     let effortChart = new Chart(effortCanvas, {
