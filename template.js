@@ -85,11 +85,14 @@ exports.output = (calculations) => {
       <div class="row">
         <div class="col"><canvas id="chart-effort-loc"></canvas></div>
         <div class="col"><canvas id="chart-development-loc"></canvas></div>
-        <div class="w-100"></div>
+        <div class="w-100" id="chart-divider"></div>
         <div class="col"><canvas id="chart-staffSize-loc"></canvas></div>
         <div class="col"><canvas id="chart-productivity-loc"></canvas></div>
       </div>
     </div>
+    <section id="download">
+      <button id="download-button" class="btn btn-dark">Download Charts</button>
+    </section>
   </section>
   <footer id="footer">
 		<div class="container-fluid">
@@ -319,6 +322,27 @@ exports.output = (calculations) => {
         }
       }
     });
+
+    const downloadButton = document.querySelector("#download-button")
+    downloadButton.addEventListener("click", download_image);
+    const charts = document.querySelectorAll("canvas");
+    const chart_names = ['chart-effort-loc', 'chart-development-loc', 'chart-staffSize-loc', 'chart-productivity-loc']
+    function download_image(){
+      charts.forEach(chart => {
+        let context = chart.getContext('2d')
+        context.globalCompositeOperation = 'destination-over';
+        context.fillStyle = 'white';
+        context.fillRect(0,0, chart.width, chart.height);
+      })
+      for(let i = 0; i < chart_names.length; i++) {
+        const canvas = document.getElementById(chart_names[i]);
+        image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+        const link = document.createElement('a');
+        link.download = chart_names[i] + '.png'
+        link.href = image;
+        link.click();
+      }
+    }  
   </script>
   </body>
   </html>  

@@ -6,11 +6,13 @@ header#Top {
   margin: 0 auto;
   width: auto;
   margin-bottom: 5%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 section#body {
   margin: 5%;
-  /* border: 1px solid black; */
+  padding: 2% 0;
   border-radius: 10px;
   background: white;
 }
@@ -22,10 +24,24 @@ h1 {
 
 body {
   background-image: url("../home/imag/background.png");
-  background-position: 0% -7%;
+  background-position: 0 85px;
   background-repeat: repeat-x;
 }
 
 #graph-container {
   padding-bottom: 4%;
+}
+
+#download-button {
+  display: block;
+  margin: 0 auto;
+}
+
+canvas {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#chart-divider {
+  padding: 2% 0;
 }
