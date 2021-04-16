@@ -8,6 +8,7 @@ const CONTENT_TYPE = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".png": "image/png",
+  ".svg": "image/svg+xml"
 }
 
 function errorResponse(response) {
