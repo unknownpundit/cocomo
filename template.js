@@ -11,6 +11,8 @@ exports.output = (calculations) => {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="./output/output-style.css">
+    <link rel="shortcut icon" type="image/jpg" href="../home/imag/logo.svg"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cocomo - Model</title>
   </head>
@@ -18,15 +20,13 @@ exports.output = (calculations) => {
     <header id="Top">
     <div class="container-fluid bg-light mt-0 p-0">
       <div class="card bg-dark text-white">
-        <img src="../home/imag/header.png" class="card-img " alt="..."
-          width="1000" height="150">
         <div class="card-img-overlay">
           <div class="row">
             <div class="col">
               <div class="row">
                 <div class="col-ms-6">
                   <p class="card-text text-start"><a href="/"><img
-                        src="../home/imag/logo.png" alt="..." width="60"
+                        src="../home/imag/logo.svg" alt="Logo" width="60"
                         height="60"></a></p>
                 </div>
                 <div class="col">
@@ -53,27 +53,42 @@ exports.output = (calculations) => {
     </div>
   </header>
   <section id="body">
-    <h1>Output</h1>
-    <section>Selected Project type: ${formatProjectType(selectedProjectType)}</section>
-    <h2>Min</h2>
-    <ul>
-      <li>Effort: ${getCalculation(calculations, selectedProjectType, true, 'effort')} Person months</li>
-      <li>Development: ${getCalculation(calculations, selectedProjectType, true, 'development')} Months</li>
-      <li>Staff size: ${getCalculation(calculations, selectedProjectType, true, 'staffSize')} People</li>
-      <li>Productivity: ${getCalculation(calculations, selectedProjectType, true, 'productivity')} KLOC/Person months</li>
-    </ul>
-    <h2>Max</h2>
-    <ul>
-      <li>Effort: ${getCalculation(calculations, selectedProjectType, false, 'effort')} Person months</li>
-      <li>Development: ${getCalculation(calculations, selectedProjectType, false, 'development')} Months</li>
-      <li>Staff size: ${getCalculation(calculations, selectedProjectType, false, 'staffSize')} People</li>
-      <li>Productivity: ${getCalculation(calculations, selectedProjectType, false, 'productivity')} KLOC/Person months</li>
-    </ul>
-    <div class="container">
-      <canvas id="chart-effort-loc"></canvas>
-      <canvas id="chart-development-loc"></canvas>
-      <canvas id="chart-staffSize-loc"></canvas>
-      <canvas id="chart-productivity-loc"></canvas>
+    <h1>Project type: ${formatProjectType(selectedProjectType)}</h1>
+    <table id="output-table" class="table table-dark table-striped table-bordered table-hover">
+      <thead>
+      <tr>
+        <th>Range</th>
+        <th>Effort (Person months)</th>
+        <th>Development (Months)</th>
+        <th>Staff Size (People)</th>
+        <th>Productivity (KLOC/Person months)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Min</td>
+        <td>${getCalculation(calculations, selectedProjectType, true, 'effort')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, true, 'development')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, true, 'staffSize')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, true, 'productivity')}</td>
+      </tr>
+      <tr>
+        <td>Max</td>
+        <td>${getCalculation(calculations, selectedProjectType, false, 'effort')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, false, 'development')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, false, 'staffSize')}</td>
+        <td>${getCalculation(calculations, selectedProjectType, false, 'productivity')}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="container" id="graph-container">
+      <div class="row">
+        <div class="col"><canvas id="chart-effort-loc"></canvas></div>
+        <div class="col"><canvas id="chart-development-loc"></canvas></div>
+        <div class="w-100"></div>
+        <div class="col"><canvas id="chart-staffSize-loc"></canvas></div>
+        <div class="col"><canvas id="chart-productivity-loc"></canvas></div>
+      </div>
     </div>
   </section>
   <footer id="footer">
