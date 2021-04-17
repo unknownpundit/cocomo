@@ -158,11 +158,11 @@ exports.intermediateModel = (raw_query) => {
 function calculateProjectTypeIntermediate(projectType, outputSet, range, query) {
   const constants = CONSTANTSI[projectType]
   const projectTypeOutputSet = []
-  range.forEach(loc => calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSet))
+  range.forEach(loc => projectTypeOutputSet.push(calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSet)))
   outputSet[projectType] = projectTypeOutputSet
 }
 
-function calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSet) {
+function calculateMetricsIntermediate(loc, constants, query) {
   const val1 = query[4]
   const val2 = query[5]
   const val3 = query[6]
@@ -183,5 +183,12 @@ function calculateMetricsIntermediate(loc, constants, query, projectTypeOutputSe
   const development= calculateIMDevelopment(effort, constants)
   const productivity = calculateIMProductivity(effort, development)
   const staffSize = calculateAverageStaffSize(effort, development)
-  projectTypeOutputSet.push({ 'effort': effort, 'development': development, 'productivity': productivity, 'staffSize': staffSize, 'loc': loc })
+  return { 'effort': effort, 'development': development, 'productivity': productivity, 'staffSize': staffSize, 'loc': loc }
 }
+
+// For Testing
+exports.calculateEffort = calculateEffort
+exports.calculateDevelopment = calculateDevelopment
+exports.calculateAverageStaffSize = calculateAverageStaffSize
+exports.calculateProductivity = calculateProductivity
+exports.calculateMetricsIntermediate = calculateMetricsIntermediate
