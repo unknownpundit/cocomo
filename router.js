@@ -2,10 +2,30 @@ const url = require("url")
 const fileHandler = require("./file-handler.js")
 const cocomo = require('./model.js')
 const template = require('./template.js')
+const homepageTemplate = require('./homepage-template.js')
+const database = require('./database.js')
 
 exports.route = (request, response) => {
   const pathname = url.parse(request.url).pathname
   const query = url.parse(request.url, 'true').query
+  const cookies = parseCookies(request)
+
+  if (request.method === 'POST') {
+    let body = '';
+    request.on('data', chunk => {
+      body += chunk.toString();
+    });
+    request.on('end', () => {
+      if (pathname == '/signup') {
+        const user = database.signUpUser(body)
+        response.writeHead(200, { "Content-Type": "text/html", /*"Set-Cookie": `user=${user.id}`*/ })
+        response.write(homepageTemplate.output(user))
+        response.end()
+      }
+    });
+    return
+  }
+
   switch (pathname) {
     case '/':
       fileHandler.readFile(request, response, "./public/home/index.html")
@@ -24,4 +44,16 @@ exports.route = (request, response) => {
       fileHandler.readFile(request, response, `./public${pathname}`)
       break
   }
+}
+
+function parseCookies(request) {
+  const list = {}
+  const rc = request.headers.cookie;
+
+  rc && rc.split(';').forEach(function( cookie ) {
+      const parts = cookie.split('=');
+      list[parts.shift().trim()] = decodeURI(parts.join('='))
+  })
+
+  return list
 }
