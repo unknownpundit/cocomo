@@ -74,7 +74,8 @@ function parseQuery(query) {
   locMax = Number(query['loc-max'])
   projectType = query['project-type']
   modelType = query['model-type']
-  return { 'locMin': locMin, 'locMax': locMax, 'projectType': projectType, 'modelType': modelType }
+  projectName = query['project-name']
+  return { 'locMin': locMin, 'locMax': locMax, 'projectType': projectType, 'modelType': modelType, 'projectName': projectName }
 }
 
 //Intermediate Raw Query
@@ -98,7 +99,8 @@ function parseQueryI(query) {
   val13 = query['ASEM']
   val14 = query['UST']
   val15 = query['RDS']
-  return [locMin, locMax, projectType, modelType, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13, val14, val15]
+  projectName = query['project-name']
+  return [locMin, locMax, projectType, modelType, val1, val2, val3, val4, val5, val6, val7, val8, val9, val10, val11, val12, val13, val14, val15, projectName]
 }
 
 // basicModel returns an object of outputs by each projectType and 11 individual LOC calculations per each projectType
@@ -110,6 +112,7 @@ exports.basicModel = (raw_query) => {
   const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
   outputSet['selectedProjectType'] = query['projectType']
   outputSet['loc-labels'] = range
+  outputSet['project-name'] = query['projectName']
   const projectTypes = ['organic', 'semi-detached', 'embedded']
   projectTypes.forEach(projectType => calculateProjectType(projectType, outputSet, range))
   return outputSet
@@ -150,6 +153,7 @@ exports.intermediateModel = (raw_query) => {
   const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
   outputSet['selectedProjectType'] = query[2]
   outputSet['loc-labels'] = range
+  outputSet['project-name'] = query[query.length - 1]
   const projectTypes = ['organic', 'semi-detached', 'embedded']
   projectTypes.forEach(projectType => calculateProjectTypeIntermediate(projectType, outputSet, range, query))
   return outputSet

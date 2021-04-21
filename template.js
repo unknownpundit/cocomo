@@ -1,6 +1,7 @@
 // renders html code that can interpolate with js code
 exports.output = (calculations) => {
   const selectedProjectType = calculations['selectedProjectType']
+  const selectedProjectName = calculations['project-name']
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -38,7 +39,8 @@ exports.output = (calculations) => {
   </nav>
 
   <section id="body">
-    <h1>Project type: ${formatProjectType(selectedProjectType)}</h1>
+    <h1>Project Name: ${formatProjectType(selectedProjectName)}</h1>
+    <h2>Selected Project Type: ${formatProjectType(selectedProjectType)}</h2>
     <table id="output-table" class="table table-dark table-striped table-bordered table-hover">
       <thead>
       <tr>
@@ -51,14 +53,14 @@ exports.output = (calculations) => {
       </thead>
       <tbody>
       <tr>
-        <td>Min</td>
+        <td>${calculations['loc-labels'][0]}</td>
         <td>${getCalculation(calculations, selectedProjectType, true, 'effort')}</td>
         <td>${getCalculation(calculations, selectedProjectType, true, 'development')}</td>
         <td>${getCalculation(calculations, selectedProjectType, true, 'staffSize')}</td>
         <td>${getCalculation(calculations, selectedProjectType, true, 'productivity')}</td>
       </tr>
       <tr>
-        <td>Max</td>
+        <td>${calculations['loc-labels'][calculations['loc-labels'].length - 1]}</td>
         <td>${getCalculation(calculations, selectedProjectType, false, 'effort')}</td>
         <td>${getCalculation(calculations, selectedProjectType, false, 'development')}</td>
         <td>${getCalculation(calculations, selectedProjectType, false, 'staffSize')}</td>

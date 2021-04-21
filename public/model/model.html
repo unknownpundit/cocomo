@@ -87,6 +87,11 @@
 				<form id="form-user" name="model-form" action="/model" onsubmit="return validateLOC()" method="GET">
 					<hr class="my-4">
 					<fieldset>
+						<legend>Project Name</legend>
+						<label for="project-name">Enter a project name</label>
+						<input id="project-name" name="project-name" required>
+					</fieldset>
+					<fieldset>
 						<legend>Model Type</legend>
 						<label for="model-type">Choose a model</label>
 						<select id="model-type" name="model-type">
