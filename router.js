@@ -17,10 +17,7 @@ exports.route = (request, response) => {
     });
     request.on('end', () => {
       if (pathname == '/signup') {
-        const user = database.signUpUser(body)
-        response.writeHead(200, { "Content-Type": "text/html", /*"Set-Cookie": `user=${user.id}`*/ })
-        response.write(homepageTemplate.output(user))
-        response.end()
+        database.signUpUser(body, response)
       }
     });
     return
@@ -39,6 +36,12 @@ exports.route = (request, response) => {
       } else {
         fileHandler.readFile(request, response, "./public/model/model.html")
       }
+      break
+    case '/signout':
+      console.log(cookies)
+      response.writeHead(200, { "Content-Type": "text/html" })
+      response.write('signed out') // calls template module to render html
+      response.end()
       break
     default:
       fileHandler.readFile(request, response, `./public${pathname}`)

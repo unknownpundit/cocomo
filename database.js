@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const homepageTemplate = require('./homepage-template.js')
 
 const connection_pool = mysql.createPool({
   host: 'localhost',
@@ -27,7 +28,7 @@ function selectAll() {
   })
 }
   
-exports.signUpUser = (raw_data) => {
+exports.signUpUser = (raw_data, response) => {
   const user = {}
   raw_data.split('&').forEach(set => {
     const components = set.split('=')
@@ -38,11 +39,15 @@ exports.signUpUser = (raw_data) => {
       console.log(error)
     }
     else {
-      console.log(selectAll())
+      connection_pool.query(`select users.id from users where name="${user['name']}" and email="${user['email']}";`, (error, results, fields) => {
+        if (error) {
+          return error
+        } else {
+          response.writeHead(200, { "Content-Type": "text/html", "Set-Cookie": `user=${results[0].id}` })
+          response.write(homepageTemplate.output(user))
+          response.end()
+        }
+      })
     }
   })
-  connection_pool.end()
-  return user
 }
-
-console.log(selectAll())
