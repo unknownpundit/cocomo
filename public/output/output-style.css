@@ -60,3 +60,7 @@ canvas {
 #content-wrap {
   min-height: 100vh;
 }
+
+#model-list a {
+  font-size: 24px;
+}
