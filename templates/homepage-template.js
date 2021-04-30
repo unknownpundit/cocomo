@@ -33,7 +33,7 @@ exports.output = (user) => {
     <ul class="navbar-nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link" aria-current="page"
-          href="./">About</a>
+          href="#project_costs">About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/model">Get
