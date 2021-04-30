@@ -337,6 +337,7 @@ function getData(calculations, projectType, metric) {
 }
 
 function formatProjectType(projectType) {
+  projectType = projectType.replace('_', ' ')
   return projectType.slice(0,1).toUpperCase() + projectType.slice(1)
 }
 

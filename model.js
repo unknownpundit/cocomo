@@ -112,7 +112,7 @@ exports.basicModel = (raw_query) => {
   const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
   outputSet['selectedProjectType'] = query['projectType']
   outputSet['loc-labels'] = range
-  outputSet['project-name'] = query['projectName']
+  outputSet['project-name'] = formatProjectName(query['projectName'])
   const projectTypes = ['organic', 'semi-detached', 'embedded']
   projectTypes.forEach(projectType => calculateProjectType(projectType, outputSet, range))
   return outputSet
@@ -153,7 +153,7 @@ exports.intermediateModel = (raw_query) => {
   const outputSet = { } // nested is the outputs by projectType, as well as selected projectType
   outputSet['selectedProjectType'] = query[2]
   outputSet['loc-labels'] = range
-  outputSet['project-name'] = query[query.length - 1]
+  outputSet['project-name'] = formatProjectName(query[query.length - 1])
   const projectTypes = ['organic', 'semi-detached', 'embedded']
   projectTypes.forEach(projectType => calculateProjectTypeIntermediate(projectType, outputSet, range, query))
   return outputSet
@@ -196,3 +196,7 @@ exports.calculateDevelopment = calculateDevelopment
 exports.calculateAverageStaffSize = calculateAverageStaffSize
 exports.calculateProductivity = calculateProductivity
 exports.calculateMetricsIntermediate = calculateMetricsIntermediate
+
+function formatProjectName(name) {
+  return name.replace(' ', '_')
+}
