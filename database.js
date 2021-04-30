@@ -76,7 +76,6 @@ exports.saveModel = (raw_data, response) => {
     if (error) {
       console.log(error)
     } else {
-      console.log(results)
       user_id = results[0].id
       connection_pool.query(`insert into report (userID, result) values ('${user_id}','${raw_data.calculations}');`, (error, results, fields) => {
         if (error) {
