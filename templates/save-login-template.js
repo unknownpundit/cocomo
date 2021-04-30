@@ -1,4 +1,4 @@
-
+exports.login = (calculations) => `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,17 +44,7 @@ label > input {
   stroke: currentColor;
   fill: currentColor;
 }
-		</style>
-		
-		
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+		</style> 
 	  
 	  
 </head>
@@ -62,13 +52,13 @@ label > input {
 	<header id="Top">
 		<div class="container-fluid bg-light mt-0 p-0">
 			<div class="card bg-dark text-white">
-					<img src="imag/top.png" class="card-img " alt="..." width="1000" height="500" >
+					<img src="./home/imag/top.png" class="card-img " alt="..." width="1000" height="500" >
 					<div class="card-img-overlay">
 					<div class="row">
 					<div class="col">
 					  <div class="row">
 						<div class="col" >
-							<p class="card-text text-start"><img src="imag/logo.png" alt="..." width="50" height="50"></p>
+							<p class="card-text text-start"><img src="./home/imag/logo.png" alt="..." width="50" height="50"></p>
 						</div>
 						<div class="col">
 						  <ul class="nav justify-content-end">
@@ -94,8 +84,8 @@ label > input {
 					  <div class="row">
 						  <div class="col">   </div>
 					  <div class="col bg-light text-dark">
-						<h3 class="header">Member Login <img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMTYgMTUuNTAzQTUuMDQxIDUuMDQxIDAgMSAwIDE2IDUuNDJhNS4wNDEgNS4wNDEgMCAwIDAgMCAxMC4wODN6bTAgMi4yMTVjLTYuNzAzIDAtMTEgMy42OTktMTEgNS41djMuMzYzaDIydi0zLjM2M2MwLTIuMTc4LTQuMDY4LTUuNS0xMS01LjV6Ii8+PC9zdmc+'/> </h3>
-						<form action="/login" method="POST">
+						<h3 class="header">Member Login <img src='data:./home/image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNMTYgMTUuNTAzQTUuMDQxIDUuMDQxIDAgMSAwIDE2IDUuNDJhNS4wNDEgNS4wNDEgMCAwIDAgMCAxMC4wODN6bTAgMi4yMTVjLTYuNzAzIDAtMTEgMy42OTktMTEgNS41djMuMzYzaDIydi0zLjM2M2MwLTIuMTc4LTQuMDY4LTUuNS0xMS01LjV6Ii8+PC9zdmc+'/> </h3>
+						<form action="/save-model">
                             <div class="mb">
                               <label for="exampleInputEmail1" class="form-label">Email address</label><br>
                               
@@ -116,12 +106,12 @@ label > input {
 								<input type="text" placeholder="Password">
 							  </label> 
                             </div>
-                
+                            <input type="hidden" name="calculations" value=${calculations}>
                             <button type="submit" class="btn btn-dark btn-lg">LOGIN</button>
                             <br>
                             <br>
                           </form>
-							<a href="signup.html">Create your Account <img src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNNS45NzUgMTcuNTA0bDE0LjI4Ny4wMDEtNi4zNjcgNi4zNjZMMTYuMDIxIDI2bDEwLjAwNC0xMC4wMDNMMTYuMDI5IDZsLTIuMTI4IDIuMTI5IDYuMzY3IDYuMzY2SDUuOTc3eiIvPjwvc3ZnPg=='/></a>
+							<a href="signup.html">Create your Account <img src='data:./home/image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cGF0aCBkPSJNNS45NzUgMTcuNTA0bDE0LjI4Ny4wMDEtNi4zNjcgNi4zNjZMMTYuMDIxIDI2bDEwLjAwNC0xMC4wMDNMMTYuMDI5IDZsLTIuMTI4IDIuMTI5IDYuMzY3IDYuMzY2SDUuOTc3eiIvPjwvc3ZnPg=='/></a>
 						  
 						  
 						  
@@ -153,3 +143,9 @@ label > input {
     <script src="./forms.js"></script>
 </body>
 </html>
+`
+
+function convertCalculationsToString(calculations) {
+  result = JSON.stringify(calculations)
+  return result
+}
