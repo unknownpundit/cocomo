@@ -36,12 +36,14 @@ exports.output = (models) => {
   </nav>
 
   <div id="content-wrap">
+  <section id="body">
     <h1>Saved Models</h1>
-    <section id="body" style="display: flex; justify-content: space-between;">
-    <ul id="model-list">
-    ${showModels(models)}
-    </ul>
-    <img src="./home/imag/models-graphic.png" alt="computer" style="width: 20%; height: auto; margin-right: 24px;">
+    <div id="inner-connect-wrap" style="display: flex; justify-content: space-between;">
+      <ul id="model-list">
+      ${showModels(models)}
+      </ul>
+      <img src="./home/imag/models-graphic.png" alt="computer" style="width: 400px; height: 300px; margin-right: 24px;">
+    </div>
     </section>
   </div>
 

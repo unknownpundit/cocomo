@@ -82,7 +82,7 @@ exports.saveModel = (raw_data, response) => {
           console.log(error)
         } else {
           response.writeHead(301,
-            {Location: './models'}
+            {Location: './models', "Set-Cookie": `user=${user_id}`}
           );
           response.end();
         } 
