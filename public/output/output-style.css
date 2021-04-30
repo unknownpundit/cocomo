@@ -32,9 +32,17 @@ body {
   padding-bottom: 4%;
 }
 
+section#download {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 #download-button {
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+}
+
+form#save {
+  display: inline-block;
 }
 
 canvas {
@@ -44,4 +52,8 @@ canvas {
 
 #chart-divider {
   padding: 2% 0;
+}
+
+#content-wrap {
+  min-height: 100vh;
 }

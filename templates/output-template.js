@@ -77,6 +77,10 @@ exports.output = (calculations) => {
     </div>
     <section id="download">
       <button id="download-button" class="btn btn-dark">Download Charts</button>
+      <form action="save-output" id="save">
+        <input type="hidden" name="calculations" value=${convertCalculationsToString(calculations)}>
+        <button type="submit" style="padding: '1px'" id="save-button" class='btn btn-dark'>Save to Account</button> 
+      </section>
     </section>
   </section>
 
@@ -340,4 +344,9 @@ function getCalculation(calculations, projectType, min, metric) {
     return Math.round(calculation * 1000) / 1000
   }
   return Math.round(calculation)
+}
+
+function convertCalculationsToString(calculations) {
+  result = JSON.stringify(calculations)
+  return result
 }

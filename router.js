@@ -1,9 +1,9 @@
 const url = require("url")
 const fileHandler = require("./file-handler.js")
 const cocomo = require('./model.js')
-const template = require('./template.js')
-const homepageTemplate = require('./homepage-template.js')
+const template = require('./templates/output-template.js')
 const database = require('./database.js')
+const saveLoginTemplate = require('./templates/save-login-template.js')
 
 exports.route = (request, response) => {
   const pathname = url.parse(request.url).pathname
@@ -18,6 +18,10 @@ exports.route = (request, response) => {
     request.on('end', () => {
       if (pathname == '/signup') {
         database.signUpUser(body, response)
+      } else if (pathname == '/login') {
+        database.loginUser(body, response)
+      } else if (pathname == '/save-model') {
+        database.saveModel(body, response)
       }
     });
     return
@@ -28,20 +32,34 @@ exports.route = (request, response) => {
       fileHandler.readFile(request, response, "./public/home/index.html")
       break
     case '/model':
-      if(Object.keys(query).length > 0) { // checks to see if it's a query
-        const calculations = query['model-type'] == 'basic' ? cocomo.basicModel(query) : cocomo.intermediateModel(query)
-        response.writeHead(200, { "Content-Type": "text/html" })
-        response.write(template.output(calculations)) // calls template module to render html
-        response.end()
-      } else {
-        fileHandler.readFile(request, response, "./public/model/model.html")
-      }
+      fileHandler.readFile(request, response, "./public/model/model.html")
+      break
+    case '/output':
+      const calculations = query['model-type'] == 'basic' ? cocomo.basicModel(query) : cocomo.intermediateModel(query)
+      response.writeHead(200, { "Content-Type": "text/html" })
+      response.write(template.output(calculations)) // calls template module to render html
+      response.end()
+      break
+    case '/save-output':
+      response.writeHead(200, { "Content-Type": "text/html" })
+      response.write(saveLoginTemplate.login(query['calculations']))
+      response.end()
       break
     case '/signout':
-      console.log(cookies)
-      response.writeHead(200, { "Content-Type": "text/html" })
-      response.write('signed out') // calls template module to render html
+      response.writeHead(200, { "Content-Type": "text/html", "Set-Cookie": 'user=0' })
+      fileHandler.readFile(request, response, "./public/home/index.html")
       response.end()
+      break
+    case '/models':
+      if (cookies.user != 0) {
+        database.getModels(cookies.user, response)
+      }
+      break
+    case '/output-saved':
+      database.regenerateOutput(query['modelID'], response)
+      break
+    case '/save-model':
+      database.saveModel(query, response)
       break
     default:
       fileHandler.readFile(request, response, `./public${pathname}`)
